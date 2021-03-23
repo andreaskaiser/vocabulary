@@ -1,0 +1,44 @@
+
+<div>
+ <mat-form-field class="example-full-width">
+    <mat-label>Deutsch</mat-label>
+    <input matInput placeholder="Deutsch" value="" [(ngModel)]="wordGerman">
+  </mat-form-field>
+    <mat-form-field class="example-full-width">
+    <mat-label>Englisch</mat-label>
+    <input matInput placeholder="Englisch" value="" [(ngModel)]="wordEnglish">
+  </mat-form-field>
+  <button mat-button color="primary" (click)="addWord()">+</button>
+</div>
+
+
+
+<table matSort (matSortChange)="sortData($event)">
+  <tr>
+    <th mat-sort-header="id">ID</th>
+    <th mat-sort-header="german">Deutsch</th>
+    <th mat-sort-header="english">Englisch</th>
+  </tr>
+
+  <tr *ngFor="let word of sortedData">
+    <td>{{word.id}}</td>
+    <td>
+		<mat-form-field class="example-full-width">
+		<input *ngIf="word.edit" matInput value="" [(ngModel)]="word.german">
+		<input *ngIf="!word.edit" disabled matInput value="" [(ngModel)]="word.german">
+  </mat-form-field>
+	</td>
+	<td>
+	<mat-form-field class="example-full-width">
+    			<input *ngIf="word.edit" matInput value="" [(ngModel)]="word.english">
+		<input *ngIf="!word.edit" disabled matInput value="" [(ngModel)]="word.english">
+  </mat-form-field>
+	</td>
+    <td>	<button (click)="word.edit = !word.edit">edit</button>
+  <button (click)="deleteWord(word.id)">-</button></td>
+  </tr>
+  <div class="clearWord">
+	<button (click)="clearWords()">Clear</button>
+</div>
+
+</table>

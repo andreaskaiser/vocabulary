@@ -1,0 +1,22 @@
+<!-- <div *ngFor="let word of wordService.getRandomWords() | slice:0:1"> -->
+  <!-- <mat-label #id>{{word.id}}</mat-label> -->
+  <!-- <input *ngIf="showRandomly()" matInput placeholder="Deutsch" value="{{word.german}}">
+  <input *ngIf="!showRandomly()" matInput placeholder="Englisch" value="{{word.english}}">
+  <mat-label for="practice">
+    &Uuml;bersetzung:
+  </mat-label>
+  <input matInput placeholder="Ihr Wort eintragen" value="">
+  <button mat-button color="primary" (click)="wordService.verifyWord(word)">Pr&uuml;fen</button>
+</div> -->
+
+<div *ngFor="let word of wordService.getRandomWords() | slice:0:1">
+ <mat-form-field class="example-full-width">
+    <mat-label>Deutsch</mat-label>
+    <input matInput placeholder="Deutsch" value="{{word.german}}">
+  </mat-form-field>
+    <mat-form-field class="example-full-width">
+    <mat-label>Englisch</mat-label>
+    <input matInput placeholder="Englisch" value="" [(ngModel)]="wordEnglish">
+  </mat-form-field>
+  <button mat-button color="primary" (click)="wordService.verifyWord(word)">Pr&uuml;fen</button>
+</div>
