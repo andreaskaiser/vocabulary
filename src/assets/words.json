@@ -3,42 +3,42 @@
 		"id": "1",
 		"german": "Katze",
 		"english": "Cat",
-		"category": "animals"
+		"edit": "true"
 	},
 		{
 		"id": "2",
 		"german": "Dog",
 		"english": "Hund",
-	    "category": "animals"
+		"edit": "true"
 	},
 		{
 		"id": "3",
 		"german": "Mouse",
 		"english": "Maus",
-		"category": "animals"
+		"edit": "true"
 	},
 		{
 		"id": "4",
 		"german": "Delphin",
 		"english": "Dolphin",
-	    "category": "animals"
+		"edit": "true"
 	},
 	{
 		"id": "5",
 		"german": "Baum",
 		"english": "Tree",
-		"category": "nature"
+		"edit": "true"
 	},
 	{
 		"id": "6",
 		"german": "Berge",
 		"english": "Mountains",
-		"category": "nature"
+		"edit": "true"
 	},
 		{
 		"id": "6",
 		"german": "Wiese",
 		"english": "Meadow",
-		"category": "nature"
+		"edit": "true"
 	}
 ]

@@ -10,8 +10,10 @@ import { WordListComponent } from './word-list/word-list.component';
 import { PracticeComponent } from './practice/practice.component';
 import { ExamComponent } from './exam/exam.component';
 import { WordService } from './word.service';
-import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
+
 import {
+  MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
   MatSelectModule,
@@ -22,17 +24,18 @@ import {
 
 @NgModule({
   imports: [
-    MatFormFieldModule,
-    MatInputModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatButtonModule,
     MatTabsModule,
     MatSelectModule,
     MatFormFieldModule,
     MatSortModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '', redirectTo: '/word-list', pathMatch: 'full' },
       { path: 'word-list', component:  WordListComponent},

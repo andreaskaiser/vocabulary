@@ -1,0 +1,55 @@
+# Wortschatz-Trainer
+
+Der Wortschatztrainer ist eine Webapplikation um Vokabeln zu erfassen zu lernen und abzupüfen.
+Wortschatz-Trainer Applikation ist in 3 Tabs angeordnet.
+
+2.1 Erfassen:
+- Wortpaare alphabetisch sortiert auflisten **OK**
+- Wortpaare hinzufügen/bearbeiten/löschen **OK**
+- Button um Beispieldaten einzufüllen **NOT IMPLEMENTED YET**
+- Button um alles zurückzusetzen **NOT IMPLEMENTED YET**
+
+2.2 Trainieren 
+- Es wird zufällig die eine oder andere Sprache abgefragt **NOT IMPLEMENTED YET**
+- Wörter werden zufällig ausgewählt **OK**
+- Nach falschen Antworten wird das korrekte Wort angezeigt **NOT IMPLEMENTED YET**
+- Bonus: Falsch beantwortete Wörter werden häufiger wieder abgefragt **NOT IMPLEMENTED YET**
+
+2.3 Prüfung **NOT IMPLEMENTED AT ALL**
+- Während der Prüfung sind die Tabs Erfassen/Trainieren gesperrt
+- Es wird zufällig die eine oder andere Sprache abgefragt
+- Es werden in zufälliger Reihenfolge alle Wörter abgefragtNach der Prüfung wird das Prüfungsresultat und eine Statistik angezeigt
+- Bonus: Nötige Trefferquote und Anzahl der Wörter kann definiert werden
+- Bonus: Die Prüfungsdauer kann limitiert werden
+
+## Installation
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
+
+
+## Usage
+
+Der Wortschatzist – wie es der Name bereits erahnen lässt – eine Art Karteikasten für Dein Smartphone. Öffnest Du die Anwendung, kommst Du zu einer Übersicht, wo Du Deine einzelnen Boxen siehst. Klickst Du auf das Menü an der linken Seite, kannst Du unter dem Punkt Hinzufügen neue Vokabeln eintragen. Dort fügst Du jedes neue Wort beziehungsweise Satzphrase inklusive Übersetzung selbst hinzu. Praktisch ist, dass die App Dir einzelne Wörter vorspricht, sodass Du zeitgleich Deine Aussprache schulst. Einziges Manko hierbei: Die kostenlose Version ist auf 50 Vokabeln begrenzt. Um noch mehr Wörter eintragen zu können, musst Du für einmalig 4,49 Euro die Vollversion kaufen.
+
+```python
+top-bar component represents three tabs 
+word-list component represents 'Erstellen'tab
+practice component represents 'Trainieren'tab
+exam component represents 'Prüfung'tab
+WordService contains the following methods:
+
+wordService.addWord(german: string, english: string): void
+wordService.getWordById(id: number):void
+wordService.editWordById(id: number, german: string, english: string): void
+wordService.deleteWordById(id: number): void 
+wordService.getWords() # returns 'words[]' from ObjectType 'IWord'
+wordService.getSampleWords() # returns 'words[]' from ObjectType 'IWord'
+wordService.clearWord() # returns empty 'words[]' from ObjectType 'IWord'
+wordService.getRandomWordsOrder() # returns 'words[]' from ObjectType 'IWord' in random order
+
+
+
+```
+
+## author Andreas Kaiser
+Angluar Webapp created in context of a technical assesment

@@ -11,7 +11,7 @@ export class PracticeComponent  implements OnInit {
 
 
   constructor(public wordService: WordService) { }
-  
+
   ngOnInit(): void {
   }
 

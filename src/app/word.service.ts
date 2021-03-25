@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IWord } from './wordinterface';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { IWord } from './wordinterface';
 
 export class WordService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   words: IWord[] = [];
 
@@ -60,17 +61,37 @@ export class WordService {
     }
   }
 
-
+/**
+ * Get all words
+ */
   getWords() {
     return this.words;
   }
 
+  /*
+   * Get sample word from /assets/words.json
+    */
+  getSampleWords() {
+    this.http.get<IWord[]>(
+      '/assets/words.json').subscribe(data => {
+        this.words = data;
+      });
+      return this.words;
+  }
+
+
+  /**
+   * Clear all words
+   */
   clearWords() {
     this.words = [];
     return this.words;
   }
 
-  getRandomWords() {
+  /**
+   * Get words in random order
+   */
+  getRandomWordsOrder() {
     let randomOrder = [];
     randomOrder = this.words;
     let currentIndex = randomOrder.length, temporaryValue, randomIndex;
@@ -91,12 +112,19 @@ export class WordService {
     return randomOrder;
   }
 
+  /*
+  * DEBUG
+  */
   verifyWord(word, wordToVerify) {
     console.log('Word recieved: '
     + ' Deutsch: ' + word.german
     + ' Englisch: ' + word.english
     + ' WordToVerify: ' );
 
+
+/**
+ * TODO Implement verify word method for practice-tab
+ */
     // const wordToVerify = this.getWordById(word.id);
     // console.log('Service: VerifyWord: Word found verify ID: '
     //  + wordToVerify.id + ' Deutsch '

@@ -1,6 +1,7 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WordService } from '../word.service';
-import { Sort} from '@angular/material/sort';
+import { Sort } from '@angular/material/sort';
+
 
 
 @Component({
@@ -14,37 +15,58 @@ export class WordListComponent implements OnInit {
   public wordGerman = '';
   public wordEnglish = '';
   public sortedData = [];
+  public sampleData = [];
+  public words = [];
 
-  constructor(public wordService: WordService ) {}
+  constructor(public wordService: WordService) { }
 
-    ngOnInit(): void {
-          this.sortedData = this.wordService.getWords().slice();
+  ngOnInit(): void {
+    this.sortedData = this.wordService.getWords();
 
-   }
-
-    public addWord(): void {
+  }
+  /**
+   * add a word to wordlist in word-list-tab
+   */
+  public addWord(): void {
     if (this.wordGerman && this.wordEnglish) {
       this.wordService.addWord(this.wordGerman, this.wordEnglish);
       this.wordGerman = '';
       this.wordEnglish = '';
-      this.sortedData = this.wordService.getWords().slice();
+      this.sortedData = this.wordService.getWords();
     }
   }
+    /**
+     * Get sample word from /assets/words.json
+     */
+    getSampleWords() {
+    // console.log('content of sortedData + 'this.sortedData)
+    this.sortedData = this.wordService.getSampleWords();
+    return this.sortedData;
+  }
 
+  /**
+   * Clear all words
+   */
   clearWords(): void {
     this.wordService.clearWords();
     this.sortedData = [];
   }
 
+  /**
+   * Delete a word by given id
+   */
   deleteWord(id: number): void {
     this.wordService.deleteWordById(id);
-     this.sortedData = this.wordService.getWords().slice();
+    this.sortedData = this.wordService.getWords();
 
   }
 
 
+  /**
+   * Sort table by column alphabetical e.g. asc or desc
+   */
   sortData(sort: Sort) {
-    const data = this.wordService.getWords().slice();
+    const data = this.wordService.getWords();
     if (!sort.active || sort.direction === '') {
       this.sortedData = data;
       return;
@@ -62,6 +84,9 @@ export class WordListComponent implements OnInit {
   }
 }
 
+/**
+ * Helper function for sort algorithm
+ */
 function compare(a: number | string, b: number | string, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
